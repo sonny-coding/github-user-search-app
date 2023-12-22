@@ -16,6 +16,9 @@ export default {
           mirage: "#141d2f",
         },
       },
+      fontFamily: {
+        "space-mono": ["Space Mono", "monospace"],
+      },
     },
   },
   plugins: [],
