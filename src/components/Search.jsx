@@ -11,18 +11,21 @@ const Search = ({ setUser }) => {
     // https://api.github.com/users/thatanjan
     const url = "https://api.github.com/users/";
     const fetchURL = url.concat(user);
+    console.log("🚀 ~ file: Search.jsx:14 ~ fetchUser ~ fetchURL:", fetchURL);
+
     try {
       const options = {
         method: "GET",
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
+        headers: {
+          "Content-Type": "application/json",
+        },
       };
       const response = await fetch(fetchURL, options);
       if (!response.ok) {
         throw new Error("Network response was not okay");
       }
       const data = await response.json();
+      console.log("🚀 ~ file: Search.jsx:26 ~ fetchUser ~ data:", data);
       setUser({ data });
     } catch (error) {
       console.error(`Error fetching data:`, error);
@@ -30,8 +33,11 @@ const Search = ({ setUser }) => {
   };
   return (
     <div className="flex items-center justify-center w-full mt-10 bg-white rounded-2xl">
-      <form action="" className="flex items-center justify-center w-full px-3">
-        <span className="w-[40px] text-light-teal-blue">
+      <form
+        action=""
+        className="flex items-center justify-center w-full px-3 text-light-teal-blue"
+      >
+        <span className="w-[40px]">
           <SearchIcon />
         </span>
         <input
@@ -43,7 +49,8 @@ const Search = ({ setUser }) => {
         />
         <button
           className="w-full py-3 text-base text-white rounded-lg px-7 bg-light-blue max-w-[170px]"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             fetchUser(input);
           }}
         >
