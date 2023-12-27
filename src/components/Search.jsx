@@ -35,7 +35,7 @@ const Search = ({ setUser }) => {
     fetchUser("thatanjan");
   }, []);
   return (
-    <div className="flex items-center justify-center w-full mt-10 bg-white shadow-md rounded-2xl">
+    <div className="flex items-center justify-center w-full mt-10 bg-white shadow-md dark:bg-dark-zodiac-blue rounded-2xl">
       <form
         action=""
         className="flex items-center justify-center w-full px-3 text-light-teal-blue"

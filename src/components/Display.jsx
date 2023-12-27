@@ -1,5 +1,10 @@
 /* eslint-disable react/prop-types */
+import LinkIcon from "./svgComponents/LinkIcon";
+import CompanyIcon from "./svgComponents/CompanyIcon";
+import NavigateIcon from "./svgComponents/NavigateIcon";
+import TwitterIcon from "./svgComponents/TwitterIcon";
 import { dateFotmat } from "../../utils";
+
 const Display = ({ user }) => {
   console.log("🚀 ~ file: Display.jsx:3 ~ Display ~ user:", user);
   return (
@@ -7,12 +12,16 @@ const Display = ({ user }) => {
       <img
         src={user?.avatar_url}
         alt=""
-        className="hidden xl:block w-[160px] h-[160px] bg-light-blue rounded-full"
+        className="hidden xl:block w-[160px] h-[160px] rounded-full"
       />
       <div className="flex flex-col w-full gap-6">
         <div className="flex flex-row w-full">
-          <div className="xl:hidden">
-            <img src="" alt="" className="w-[200px] h-[200px] bg-light-blue " />
+          <div className="flex items-center justify-center p-5 xl:hidden">
+            <img
+              src={user?.avatar_url}
+              alt=""
+              className="w-[120px] h-[120px] rounded-full"
+            />
           </div>
           <div className="flex flex-col items-start w-full xl:justify-between xl:flex-row">
             <div className="">
@@ -53,13 +62,29 @@ const Display = ({ user }) => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center w-full text-base text-light-teal-blue md:flex-row">
-          <div className="w-full">
+        <div className="grid w-full grid-cols-1 gap-2 text-base md:grid-cols-2 text-light-teal-blue">
+          <div className="flex flex-row items-center">
+            <div className="w-[20px] mr-1">
+              <NavigateIcon />
+            </div>
             <p>{user?.location}</p>
-            <p>{user?.twitter_username}</p>
           </div>
-          <div className="w-full">
+          <div className="flex flex-row items-center">
+            <div className="w-[20px] mr-1">
+              <LinkIcon />
+            </div>
             <p>{user?.blog}</p>
+          </div>
+          <div className="flex flex-row items-center">
+            <div className="w-[20px] mr-1">
+              <TwitterIcon />
+            </div>
+            <a href="/">{user?.twitter_username}</a>
+          </div>
+          <div className="flex flex-row items-center">
+            <div className="w-[20px] mr-1">
+              <CompanyIcon />
+            </div>
             <p>{user?.company}</p>
           </div>
         </div>
