@@ -38,13 +38,13 @@ const Search = ({ setUser }) => {
     <div className="flex items-center justify-center w-full mt-10 bg-white shadow-md dark:bg-dark-zodiac-blue rounded-2xl">
       <form
         action=""
-        className="flex items-center justify-center w-full px-3 text-light-teal-blue"
+        className="flex items-center justify-center w-full px-3 text-light-teal-blue dark:text-white"
       >
         <span className="w-[40px]">
           <SearchIcon />
         </span>
         <input
-          className="w-full px-4 py-6 text-lg outline-none laceholder-light-teal-blue focus:ring-0"
+          className="w-full px-4 py-6 text-lg outline-none laceholder-light-teal-blue focus:ring-0 dark:bg-dark-zodiac-blue"
           type="text"
           placeholder="Search Github username..."
           value={input}
