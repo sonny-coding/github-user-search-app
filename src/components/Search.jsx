@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchIcon from "./svgComponents/SearchIcon";
 // eslint-disable-next-line react/prop-types
 const Search = ({ setUser }) => {
@@ -25,14 +25,17 @@ const Search = ({ setUser }) => {
         throw new Error("Network response was not okay");
       }
       const data = await response.json();
-      console.log("🚀 ~ file: Search.jsx:26 ~ fetchUser ~ data:", data);
-      setUser({ data });
+      // console.log("🚀 ~ file: Search.jsx:26 ~ fetchUser ~ data:", data);
+      setUser({ ...data });
     } catch (error) {
       console.error(`Error fetching data:`, error);
     }
   };
+  useEffect(() => {
+    fetchUser("thatanjan");
+  }, []);
   return (
-    <div className="flex items-center justify-center w-full mt-10 bg-white rounded-2xl">
+    <div className="flex items-center justify-center w-full mt-10 bg-white shadow-md rounded-2xl">
       <form
         action=""
         className="flex items-center justify-center w-full px-3 text-light-teal-blue"

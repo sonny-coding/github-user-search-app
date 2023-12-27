@@ -4,7 +4,7 @@ import Search from "./components/Search";
 import Display from "./components/Display";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("");
 
   return (
     <div className="flex items-start justify-center h-screen font-space-mono bg-light-ghost-white">
